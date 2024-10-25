@@ -54,7 +54,7 @@ function getMigrationFiles() {
 
     global $rootFolder;
 
-    return array_diff(scandir($rootFolder . '../migrations'), ['.', '..']);
+    return array_diff(scandir($rootFolder . 'migrations'), ['.', '..']);
 }
 
 function migrate($db) {
