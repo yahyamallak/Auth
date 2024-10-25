@@ -6,11 +6,13 @@ class Installer
 {
     public static function postInstall($event)
     {
+        $event->getIO()->write("Running post-install script...");
         self::copyMigrations($event);
     }
 
     public static function postUpdate($event)
     {
+        $event->getIO()->write("Running post-update script...");
         self::copyMigrations($event);
     }
 
@@ -21,6 +23,7 @@ class Installer
 
         if (!is_dir($target)) {
             mkdir($target, 0755, true);
+            $event->getIO()->write("Created migrations folder at $target.");
         }
 
         foreach (scandir($source) as $file) {
@@ -28,6 +31,8 @@ class Installer
                 continue;
             }
             copy("$source/$file", "$target/$file");
+            $event->getIO()->write("Copied $file to migrations folder.");
+
         }
 
         $event->getIO()->write("Migrations have been copied to the migrations folder.");
