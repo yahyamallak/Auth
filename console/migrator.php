@@ -6,7 +6,7 @@ require_once __DIR__ . '/../src/Database.php';
 use Yahya\Auth\Database;
 
 $config = include dirname(__DIR__) . '/../../../config/config.php';
-$db = new Database($config['db']);
+$db = new Database($config);
 
 $command = $argv[1] ?? null;
 
