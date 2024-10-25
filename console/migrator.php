@@ -1,11 +1,11 @@
 #!/usr/bin/env php
 <?php
 
-require_once __DIR__ . '../src/Database.php';
+require_once __DIR__ . '/../src/Database.php';
 
 use Yahya\Auth\Database;
 
-$config = include dirname(__DIR__) . '../../../config/config.php';
+$config = include dirname(__DIR__) . '/../../../config/config.php';
 $db = new Database($config['db']);
 
 $command = $argv[1] ?? null;
