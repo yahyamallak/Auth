@@ -22,5 +22,6 @@
     "post-root-package-install": [
       "Yahya\\Auth\\Installer::postInstall"
     ]
-  }
+  },
+  "bin": "console/migrator"
 }
