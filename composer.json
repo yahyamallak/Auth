@@ -23,5 +23,5 @@
       "Yahya\\Auth\\Installer::postInstall"
     ]
   },
-  "bin": "console/migrator"
+  "bin": "bin/migrator"
 }
