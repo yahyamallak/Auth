@@ -5,7 +5,9 @@ require_once __DIR__ . '/../src/Database.php';
 
 use Yahya\Auth\Database;
 
-$config = include dirname(__DIR__) . '/../../../config/config.php';
+$rootFolder = dirname(__DIR__) . '/../../../'; 
+
+$config = include $rootFolder . 'config/config.php';
 $db = new Database($config);
 
 $command = $argv[1] ?? null;
@@ -39,14 +41,20 @@ function getRunMigrations($db) {
 }
 
 function runMigration($db, $migration) {
+
+    global $rootFolder;
+
     echo "Running migration: $migration\n";
-    $sql = file_get_contents("../migrations/$migration");
+    $sql = file_get_contents($rootFolder . "migrations/$migration");
     $db->query($sql);
     $db->query("INSERT INTO migrations (migration) VALUES (?)", [$migration]);
 }
 
 function getMigrationFiles() {
-    return array_diff(scandir('../migrations'), ['.', '..']);
+
+    global $rootFolder;
+
+    return array_diff(scandir($rootFolder . '../migrations'), ['.', '..']);
 }
 
 function migrate($db) {
