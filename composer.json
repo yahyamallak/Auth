@@ -19,11 +19,8 @@
     "php": "^8.0"
   },
   "scripts": {
-    "post-install-cmd": [
+    "post-root-package-install": [
       "Yahya\\Auth\\Installer::postInstall"
-    ],
-    "post-update-cmd": [
-      "Yahya\\Auth\\Installer::postUpdate"
     ]
   }
 }

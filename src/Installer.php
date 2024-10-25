@@ -10,12 +10,6 @@ class Installer
         self::copyMigrations($event);
     }
 
-    public static function postUpdate($event)
-    {
-        $event->getIO()->write("Running post-update script...");
-        self::copyMigrations($event);
-    }
-
     private static function copyMigrations($event)
     {
         $source = __DIR__ . '/../migrations';
