@@ -1,0 +1,29 @@
+{
+  "name": "yahya/auth",
+  "description": "Authentication System",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Yahya\\Auth\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Yahya mallak",
+      "email": "Yahya10mallak@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "php": "^8.0"
+  },
+  "scripts": {
+    "post-install-cmd": [
+      "Yahya\\Auth\\Installer::postInstall"
+    ],
+    "post-update-cmd": [
+      "Yahya\\Auth\\Installer::postUpdate"
+    ]
+  }
+}
